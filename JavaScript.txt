@@ -1,0 +1,1876 @@
+
+$$$$$$$$$$$$$$$$$$$$ Started Learning JavaScript On The 20th October, 2021 @ KTU Getfund B007 $$$$$$$$$$$$$$$$$$$
+
+    [ Setting Up For JavaScript ]
+JavaScript can be runned on both browser and IDE, BUT The best is to use an IDE Like VS Code.
+along with the IDE, download and install node.js on the PC. 
+
+Open VS Code, Open a folder, create a new file called 'index.html'
+Also in VS Code extention, find and install live server 
+right click on 'index.html' and select 'Open with Live Server'
+
+
+    
+    [ First JavaScript Program ]
+
+As a best pratice, add JavaScript elements at the botton of the body section, unless 
+you're using third party then import in the head section.
+
+    [ Comments In JavaScript ]
+Short = [ // ]
+Long = [ /* */ ]
+
+
+
+    [ Separation Of Concerns In JavaScript ]
+
+HTML is all about content, and JavaScript Is All about Behavour. So we have to separate
+these two files, create a new file called 'index.js' and reference it to 'index.html'
+Like this: [ <script src="index.js"></script> ]  
+
+
+
+    [ JavaScript In Node ]
+
+To run JavaScript in Node, Open Command Prompt, navigate to the folder you're working in,
+and type this Code: [ node index.js ] were 'index.js' is the name of the JavaScript file.
+
+
+
+    [ Variables In JavaScript ]
+
+NOTE: The defualt value of Variables in JavaScript is undefined.
+
+[ Rules in naming Variables in JavaScript ]
+[1] Cannot be a reserved keyword
+[2] Should be meaningful
+[3] Cannot start with a number
+[4] Cannot contain space or hyphen(-)
+[5] Use the camel notation eg: 'myNameIsBoy'
+
+My first JavaScript Variables = [ let name = 'Theophilus'; ]
+
+-- EXAMPLES --
+let nice_Day = `James`;
+let money = 778.0;
+console.log(`how do you do ${nice_Day}`); 
+console.log(`how much do you have in your account: $${money}`);
+
+    [ Constants Variables In JavaScript ]
+Constants Variables are used to store values, that are not to be changed.
+eg: [ const interestRate = 0.3; ]
+
+
+
+    [ Datatypes In JavaScript ]
+In JavaScript we have two main types which are: Primitives(Value Types) and Reference Type.
+Under the Primitives Type, we have the following: String, Number, Boolean, Undefine, and Null.
+[ let isApproved = true; ]
+[ let qwerty; ] = Undefine Variable
+[ let selectedColor = null; ] = 'null' is used to clear the value of the Variable.
+
+Under the Reference Type, we have the following: Objects, Array, and Functions.
+
+
+
+            [ JavaScript is a Dynamic language ]
+
+In programming, there are two types of languages: Static, and Dynamic. Where with the Static
+the Datatype of a Variable Cannot be changed to another Datatype later in the Program.
+
+But, with the Dynamic based programming languages Like JavaScript,
+Datatypes can be changed to other Datatypes later in the Program. 
+
+You can check the Datatype of a Variable with this operator: [ 'typeof' ] see example below:
+[
+    let isApproved = true;
+
+    console.log(typeof isApproved);
+    isApproved = 'Ghana';
+    console.log(typeof isApproved);
+]
+
+In JavaScript we don't have int, float, double and so on,
+They're all classified as 'number' in JavaScript programming language.
+
+
+
+        [ Objects In JavaScript ]
+AN OBJECT IS A COLLECTION OF RELATED PROPERTIES AND/OR METHODS
+CAN REPRESENT REAL WORLD OBJECT: people, products, places.
+
+The code below is an example of how to create an Object:
+[
+    let person = {
+        name: 'Theophilus',
+        age: 23,
+        say_HELLO: function () {console.log(`i'm ${this.name}`)}
+    };
+]
+
+The code below is an example of how to read the content of the 'person' Object:
+[ console.log(person.name); ] This prints the value of 'name' to the console.
+[ console.log(person['name']); ] Same here.
+
+The code below is an example of how to change the value of a key in the 'person' Object:
+[ person.name = 'Shampileele'; ] 
+[ person['name'] = 'Shampileele'; ]
+
+
+
+        [ Arrays In JavaScript ]
+
+The code below is an example of how to create an Array In JavaScript:
+[ let selectedColor = ['blue', 'white']; ]
+
+The code below is an example of how to access the content of the Array:
+[ console.log(selectedColor[0]); ]
+
+The code below is an example of how to write to the Array:
+[ console.log(selectedColor[2]) = 'green'; ]
+
+To Add new value to array(last) use code below
+[ selectedColor.push(`yellow`); ]
+
+To Add new value to the Begining of an array, use code below
+[ selectedColor.unshift(`pick`); ]
+
+To remove value from the Begining of an array, use code below
+[ selectedColor.shift(); ]
+
+To remove the last value in an array use code below
+[ selectedColor.pop(); ]
+
+To get length of an array, use code below
+[ selectedColor.length ]
+
+To find the index of value(color), use code below
+[ selectedColor.indexOf("blue") ]
+
+To get every value from array, you can use the for-LOOP
+[
+    for (let index = 0; index < selectedColor.length; index++) {
+        console.log(selectedColor[index])
+    }
+    // ADVANCED
+    for (let color of selectedColor) {
+        console.log(color);
+    }
+]
+
+To sort(alphabetical order) an array, you can use the sort method
+[ selectedColor.sort(); ]
+
+To sort an array in reverse, use the code below.
+[ selectedColor.sort().reverse(); ]
+
+The Array is an Object with properties you can access using the '.' operator try it out.
+
+
+
+        [ Functions In JavaScript ]
+
+The code below is an example of how to create a Function In JavaScript:
+[
+    function greet() {
+        console.log('Hello World');
+    }
+]
+
+The code below is an example of how to call a Function in JavaScript:
+[ greet(); ]
+
+Working with parameter and arguments in JavaScript:
+[
+    function greet(name, lastName) {
+        console.log('Hello ' + name + ' ' + lastName);
+    }
+
+    greet('Theophilus', 'Tetteh');
+]
+
+
+
+        [ Types Of Functions In JavaScript]
+
+The code below is an example of a Function in JavaScript:
+[
+    function square(number) {
+        return number * number
+    }
+
+    console.log(square(2));
+]
+
+$$$$$$$$$$$$$$$$$$$$ CONTINUED Learning JavaScript On The 19th April, 2024 @ LA-KWAKRANYA ST. $$$$$$$$$$$$$$$$$$$
+
+// GET HTML ELEMENTS AND MANIPULATE THEM WITH JS, EXAMPLES BELOW \\
+[
+    document.getElementById("myH1").textContent = `HELLO`;
+    document.getElementById("myP").textContent = `I Like Pizza`;
+
+    document.getElementById('p1').textContent = `Your Fullname is = ${fullName}`
+    document.getElementById('p2').textContent = `Your are ${age} years old`
+    document.getElementById('p3').textContent = `It's ${student} you are a student`
+]
+
+
+// ALERT WINDOW \\
+[ window.alert(`I like Pizza!`); ]
+
+
+
+// HOW TO ACCEPT USER INPUT \\
+
+// EASY WAY = WINDOW PROMPT
+// PROFESSIONAL WAY = HTML TEXTBOX
+
+// EASY WAY \\
+[
+    let username;
+    username = window.prompt(`enter your username: `)
+]
+
+// PROFESSIONAL WAY
+[
+    let username;
+
+    document.getElementById(`submitBtn`).onclick = function (){
+        // takes valus from form into variable
+        username = document.getElementById(`usrInput`).value;
+
+        document.getElementById(`showName`).textContent = `Hello ${username}`
+    }
+]
+
+
+
+// TYPE CONVERTION IN JS \\
+CHANGE THE DATATYPE OF A VALUE TO ANOTHER (string, number, boolean)
+
+[
+    // TECNICALLY THIS WILL PRODUCE A STRING NOT A NUMBER
+    let age = window.prompt(`how old are you: `); 
+
+    // CONVERT USER INPUT TO BOOLEAN
+    //age = Boolean(age);
+    // CONVERT USER INPUT TO STRING
+    //age = String(age);
+    // CONVERT USER INPUT TO NUMBER
+    age = Number(age);
+
+    window.alert(`you are ${age} years old`);
+]
+
+
+
+///// -- PROJECT 1 -- COUNTER PROGRAM \\\\\
+[
+    const decrease_Btn = document.getElementById(`decrease_Btn`);
+    const reset_Btn = document.getElementById(`reset_Btn`);
+    const increase_Btn = document.getElementById(`increase_Btn`);
+    const count_Lable = document.getElementById(`count_Lable`);
+
+    let count = 0;
+
+    increase_Btn.onclick = function (){
+        count++;
+        count_Lable.textContent = count;
+    }
+    decrease_Btn.onclick = function (){
+        count--;
+        count_Lable.textContent = count;
+    }
+    reset_Btn.onclick = function (){
+        count = 0;
+        count_Lable.textContent = count;
+    }
+]
+
+
+
+// MATH in JavaScript \\
+Math is a built-in javascript object that provides a collection of Math related properties and methods.
+EXAMPLES [
+    [ Math.PI ] = This gives the value of 'pi'.
+    [ Math.E ] = This gives the value of 'E = 2.71828...' KNOWN AS Euler's Number.
+    [ Math.round(variable_Name) ] = you can round a number here.
+    [ Math.ceil(variable_Name) ] = you can always round-up a number here.
+    [ Math.floor(variable_Name) ] = you can always round-down a number here.
+    [ Math.trunc(variable_Name) ] = this will remove every decimal, and show only the whole number.
+    [ Math.pow(x, y) ] = {'x' to the power of 'y'} the power method (rise to the power).
+    [ Math.floor(variable_Name) ] = you can always round-down a number here.
+    [ Math.sqrt(variable_Name) ] = this method is for square root.
+    [ Math.abs(variable_Name) ] = to get the absolute value of a number.( '-3.45' will be '3.45' ).
+    [ Math.sign(variable_Name) ] = to get the sign of a number ( '-5.67'='-1', '5.67'='1', '0'='0' )
+    [ Math.max(variable_Name, variable_Name, variable_Name) ] = get biggest number.
+    [ Math.min(variable_Name, variable_Name, variable_Name) ] = get smallest number.
+    [ Math.random() ] = this will generate random numbers BETWEEN '0' and '1'.
+    [ Math.floor(Math.random() * 6) ] = this will generate random numbers BETWEEN '0' and '6' WIHTOUT DECIMALS.
+    
+    // RANDOM NUMBERS BETWEEN '50' and  '100'
+    const mim = 50;
+    const max = 100;
+    let random_number = Math.floor(Math.random() * (max - mim)) + mim;
+
+]
+
+
+
+// RANDOM NUMBER in JavaScript \\
+HOW TO CREATE RANDOM NUMBERS [
+    [ Math.random() ] = this will generate random numbers BETWEEN '0' and '1'.
+    [ Math.floor(Math.random() * 6) ] = this will generate random numbers BETWEEN '0' and '6' WIHTOUT DECIMALS.
+]
+
+///// -- PROJECT 2 -- RANDOM NUMBER GENERATOR \\\\\
+PROGRAM [
+    const myButton = document.getElementById(`myButton`);
+    const myLabel = document.getElementById(`myLabel`);
+
+    const min = 1;
+    const max = 6;
+    let random_Num;
+
+    myButton.onclick = function () {
+        random_Num = Math.floor(Math.random() * max) + min;
+        myLabel.textContent = random_Num;
+    }
+]
+
+
+
+// IF-STATEMENT IN JS \\
+IF-STATEMENT STRUCTURE IN JAVASCRIPT 
+[
+    if (condition) {
+        
+    }
+    else if () {
+
+    } 
+    else {
+        
+    }
+]
+
+
+
+// THE CHECKED PROPERTY IN JAVASCRIPT \\
+THE CHECKED PROPERTY DETERMINES THE CHECKED STATE OF AN HTML CHECKBOX OR A RADIO BUTTON ELEMENT.
+
+BY EXAMING THIS PROPERTY WE DETERMINE WETHER CHECKBOX OR RADIO BUTTON IS SELECTED.
+
+EXAMPLE
+[
+    const myCheckBox = document.getElementById(`myCheckBox`);
+    const visaBtn = document.getElementById(`visaBtn`);
+    const masterCardBtn = document.getElementById(`masterCardBtn`);
+    const payPalBtn = document.getElementById(`payPalBtn`);
+    const mySubmit = document.getElementById(`mySubmit`);
+    const subResult = document.getElementById(`subResult`);
+    const paymentResult = document.getElementById(`paymentResult`);
+
+    mySubmit.onclick = function (){
+
+        // CHECK-BOX
+        if (myCheckBox.checked) {
+            subResult.textContent = `You are Subscribed!`;
+        } else {
+            subResult.textContent = `You are NOT Subscribed!`;
+        }
+
+        // RADIO BUTTONS
+        if (visaBtn.checked) {
+            paymentResult.textContent = `You are paying with Visa`;
+        }
+        else if (masterCardBtn.checked) {
+            paymentResult.textContent = `You are paying with MasterCard`;
+        }
+        else if (payPalBtn.checked) {
+            paymentResult.textContent = `You are paying with PayPal`;
+        }
+        else {
+            paymentResult.textContent = `You must select a payment type`;
+        }
+    }
+]
+
+
+
+// TERNARY OPERATOR IN JAVASCRIPT \\
+IT'S A SHORT-CUT TO IF{} AND ELSE{} STATEMENTS.
+HELPS TO ASSIGN A VARIABLE BASED ON A CONDITION.
+TERNARY OPERATOR STRUCTURE = [ condition ? codeIf_True : codeIf_False; ]
+
+-- ASSIGN A VARIABLE BASED ON A CONDITION --
+[
+    let age = 21;
+    let message = age >= 18 ? "You're an adult" : "You're a minor";
+]
+
+
+
+// SWITCHES IN JAVASCRIPT \\
+Switch can be a efficient replacement to many else-if statements.
+
+-- EXAMPLE 1 -- ( DAY 1-TO-7 )[
+
+    let day = 1;
+    switch (day) {
+        case 1:
+            console.log(`Monday`);
+            break;
+        case 2:
+            console.log(`Tuesday`);
+            break;
+        case 3:
+            console.log(`Wenessday`);
+            break;
+        case 4:
+            console.log(`Thurday`);
+            break;
+        case 5:
+            console.log(`Friday`);
+            break;
+        case 6:
+            console.log(`Saturday`);
+            break;
+        case 7:
+            console.log(`Sunday`);
+            break;  
+        default:
+            console.log(`${day} Is not a day`);
+            break;
+    }
+]
+
+-- EXAMPLE 2 -- ( SCORE SHEET )[
+
+    let testScore = 100;
+    let GradeLetter;
+
+    switch (true) {
+        case testScore >= 90:
+            GradeLetter = `A`;
+            break;
+        case testScore >= 80:
+            GradeLetter = `B`;
+            break;
+        case testScore >= 70:
+            GradeLetter = `C`;
+            break;
+        case testScore >= 60:
+            GradeLetter = `D`;
+            break;  
+        default:
+            GradeLetter = `F`;
+            break;
+    }
+
+    console.log(GradeLetter);
+]
+
+
+
+// STRING METHODS IN JS \\
+THESE METHODS ALLOW YOU TO MANIPULATE AND WORK WITH TEXT(Strings)
+[
+    usrName.charAt(0) = find charaters by their index.
+    usrName.charAt('D') = get index of charater.
+    usrName.length = get length of charaters.
+    usrName.trim = remove space before and after charaters.
+    usrName.toUpperCase() = all charaters to uppercase.
+    usrName.toLowerCase() = all charaters to lowercase.
+    usrName.repeat(20) = you can repeat a text a number of times just put the number here [ repeat(4); ]
+    CASE-SENSETIVE
+    usrName.startsWith('Dh') =  RETURN A BOOLERN, check if it starts with something.
+    usrName.endsWith('pe') = RETURN A BOOLERN, check if it ends with something.
+    usrName.includes('pe') = the include
+    usrName.replaceAll('o', '0')
+    usrName.padStart(20, "B") = start the string with 'B' untill it reaches 20 length long.
+    usrName.padEnd(20, "B") = end the string with 'B' untill it reaches 20 length long.
+]
+
+
+
+// STRING SLICING IN JS \\
+THIS IS THE PROCESS OF CREATING A SUBSTRING, FROM A PORTION OF ANOTHER STRING.
+usrName.slice(start, end) RTHIS USES INDEX TO FIND charaters.
+
+let usrName = "Dhope NATION";
+usrName.slice(0, 5) = get first name
+usrName.slice(6, 12) = get last name
+usrName.slice(-1) = get last charater
+usrName.slice(0, 1) = get first charater
+
+TO MAKE CODE ABOVE DYNAMIC let use the 'indexOf()'
+[
+    fnam = usrName.slice(0, usrName.indexOf(" ")); 
+    lnam = usrName.slice(usrName.indexOf(" ") + 1); // the '+ 1' means plus any other charaters that come after. 
+]
+
+EXAMPLE 1 LET'S GET USERNAME FROM EMAIL
+[
+    let email = `dhope@gmail.com`;
+    let username = email.slice(0, email.indexOf("@"));
+    let extension = email.slice(email.indexOf("@") + 1);
+    
+    console.log(username);
+    console.log(extension);
+]
+
+
+
+// METHOD CHAINING IN JS \\
+IT'S THE PROCESS OF CALLING ONE METHOD AFTER ANOTHER IN ONE CONTINUOUS LINE OF CODE.
+EXAMPLE
+[
+    let username = window.prompt("Enter your username: ");
+
+    username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
+    console.log(username);
+]
+
+
+
+// LOGICAL OPERATOR IN JS \\
+[
+    AND = &&
+    OR = ||
+    NOT = !
+]
+
+
+
+// EQUALITY OPERATOR IN JS \\
+[
+    [ = ] assignment operator.
+    [ == ] comparison operator.
+    [ === ] strict equality operator (compare if value and datatype are equal).
+    [ != ] inequality operator.
+    [ !== ] strict inequality operator.
+]
+
+
+
+// WHILE-LOOP IN JS \\
+REPEAT SOME CODE WHILE SOME CONDITION IS TRUE.
+EXAMPLE
+[
+    let username = "";
+
+    while (username === "" || username === null) {
+        username = window.prompt(`Enter your name: `)
+    }
+
+    console.log(`Hello ${username}`);
+]
+
+THERE ALSO DO-WHILE LOOP WHICH RUNS THE CODE ONCE BEFORE CHECKING THE CONDITION
+[
+    let username = "";
+
+    do {
+        username = window.prompt(`Enter your name: `)
+    } while (username === "" || username === null)
+
+    console.log(`Hello ${username}`);
+]
+
+
+
+// FOR-LOOP IN JS \\
+REPEAT SOME CODE A LIMITED AMOUNT OF TIMES.
+EXAMPLE
+[
+    for (let index = 0; index < 30; index++) {
+
+        if (index == 13) {
+            // 'continue' is the JUMP in JavaScript
+            continue;
+        }
+        else if (index == 21) {
+            // 'break' is the STOP in JavaScript
+            break;
+        } 
+        else {
+            console.log(`${index} still`)
+        }
+        
+    }
+
+    console.log(`BROKE OUT OF LOOP yeah`)
+] 
+
+
+
+/// -- PROJECT 3 -- NUMBER GUESSING GAME \\\
+[
+    // NUMBER GUESSING GAME
+
+    const minNum = 1;
+    const maxNum = 7;
+    const answer = Math.floor(Math.random() * (maxNum - minNum + 1));
+
+    let attempts = 0;
+    let guess;
+    let running = true;
+
+    while (running) {
+
+        guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
+        guess = Number(guess);
+
+        // TO CHECK IF INPUT IS NOT A NUMBER USE THE isNaN(variable_Name)
+        if (isNaN(guess)) {
+            window.alert("enter valid number");
+        }
+        else if ( guess < minNum || guess > maxNum){
+            window.alert(`enter number within ${minNum} and  ${maxNum}`);
+        }
+        else {
+
+            attempts++;
+
+            if (guess < answer) {
+                window.alert("TOO LOW! TRY AGAIN");
+            }
+            else if (guess > answer) {
+                window.alert("TOO HIGH! TRY AGAIN");
+            }
+            else {
+                window.alert(`CONGRATULATIONS! The answer is: ${answer}. It took you ${attempts} attempts.`);
+                running = false;
+            }
+        }   
+    }
+]
+
+
+
+// FUNCTIONS IN JS \\
+FUNCTIONS STRUCTURE IN JS
+[
+    function name() {
+        // CODE
+    }   `
+]
+CALL FUNCTION [ name(); ]
+
+
+
+///// -- PROJECT 3 --- TEMPERATURE CONVERSION PROGRAM \\\\\
+[
+    const textBox = document.getElementById("textBox");
+    const to_Fahrenheit = document.getElementById("to_Fahrenheit");
+    const to_Celsius = document.getElementById("to_Celsius");
+    const result = document.getElementById("result");
+
+    let temp;
+
+    function convert() {
+        
+        if (to_Fahrenheit.checked) {
+            temp = Number(textBox.value);
+            temp = temp * 9 / 5 + 32;
+            // SETTING RESULTS
+            result.textContent = temp.toFixed(1) + `°F`;
+        }
+        else if (to_Celsius.checked) {
+            temp = Number(textBox.value);
+            temp = (temp - 32) * (5/9);
+            // SETTING RESULTS
+            result.textContent = temp.toFixed(1) + `°C`;
+        }
+        else {
+            result.textContent = `Select a unit`;
+        }
+    }
+]
+
+
+
+// SPREAD OPERATOR ~ under array \\
+The Spread operator is represented by 3-dots(...) allows an iterable 
+such as an array or string to be expanded into separate elements (unpacks the elements)
+
+EXAMPLE 1
+IMAGINE HAVING AN ARRAY OF NUMBERS, FINDING THE MAX/MIN IS A PROBLEM BUT The Spread operator SLOVES IT.
+[
+    // PROBLEM
+    let numbers =[1, 5, 2, 3, 4] 
+    console.log( Math.max(numbers) );
+    THE CODE ABOVE WILL GIVE YOU 'NaN' WHICH MEANS IT'S NOT A NUMBER.
+
+    // TO SLOVE THIS, USE THE SPREAD OPERATOR TO UNPACK(SPREAD) EVERY ELEMENT ONE BY ONE.
+    console.log(Math.max(...numbers));
+    console.log(Math.min(...numbers));
+]
+
+EXAMPLE 2
+WE HAVE STRING VARIABLE [username = "dhope"] convert it to an array.
+[
+    let username = "dhope";
+    let letters =  [...username]
+    console.log(letters);
+    THIS WILL BE THE OUTPUT: ['d', 'h', 'o', 'p', 'e'] IT'S HAS BEEN SPREAD OUT, ONE BY ONE
+
+    WE CAN JOIN THEM TOGETHER, WITH A CHARATER IN-BETWEEN THEM
+    let letters =  [...username].join()
+    console.log(letters);
+    THE DEFAULT CHARATER IS ',' : d,h,o,p,e
+
+    TO HAVE NO SPACES BETWEEN THEM, USE CODE BELOW
+    [ let letters =  [...username].join("") ] OUTPUT: dhope
+
+    TO SET A CHARATER BETWEEN THEM, USE CODE BELOW
+    [ let letters =  [...username].join("-") ] OUTPUT: d-h-o-p-e
+]
+
+EXAMPLE 3
+WE CAN JOIN TWO OR MORE ARRAYS 
+[
+    let fruits = ["apple", "orange", "banana"];
+    let vegetable = ["carrots", "celery", "potatoes"];
+
+    let foods = [...fruits, ...vegetable];
+    console.log(foods);
+    OUTPUT WILL BE: ['apple', 'orange', 'banana', 'carrots', 'celery', 'potatoes']
+
+    WE CAN EVEN APPEND TO THIS ARRAY
+    let foods = [...fruits, ...vegetable, "eggs", "milk"];
+    console.log(foods);
+    OUTPUT WILL BE: ['apple', 'orange', 'banana', 'carrots', 'celery', 'potatoes', 'egg', 'milk']
+]
+
+
+
+// REST PARAMETERS ~ under arrays \\
+REST PARAMETERS ARE PARAMETERS PRE-FIXED WITH 3-DOTS(...rest)
+THEY ALLOW A FUNCTION TO WORK WITH A VARIABLE NUMBER OF ARGUMENTS
+BY BUNDDLING THEM TOGETHER INTO AN ARRAY.
+
+spread = expands an array into separate elements.
+rest = bundles separate elements into an array.
+
+EXAMPLE 1
+THE REST PARAMETERS IS DESIGNED TO TAKED UNLIMITED NUMBER OF ARGUMENTS
+[
+    function open_Fridge(...foods) {
+        console.log(foods);
+        // we can even use spread opeartor here
+        //console.log(...foods);
+    }
+
+    const food1 = "pizza";
+    const food2 = "hamburger";
+    const food3 = "hotdog";
+    const food4 = "sushi";
+    const food5 = "ramen";
+
+    open_Fridge(food1, food2, food3, food4, food5);
+
+]
+
+EXAMPLE 2
+LET'S CREATE A FUNCTION TO SUM A BURCH OF NUMBER TOGETHER
+[
+    function sum(...numbers) {
+    
+        let result = 0;
+        for (let num of numbers){
+            result += num;
+        }
+        return result;
+    }
+
+    const total = sum(6, 4, 17);
+    console.log(total);
+]
+
+EXAMPLE 3
+LET'S CREATE A FUNCTION TO CALCULATE THE AVERAGE
+[
+    function get_Average(...numbers) {
+    
+        let result = 0;
+        for (let num of numbers){
+            result += num;
+        }
+        return result / numbers.length;
+    }
+
+    const total = get_Average(6, 46, 17);
+    console.log(total);
+]
+
+EXAMPLE 4
+LET'S CREATE A FUNCTION TO COMBINE STRINGS TOGETHER
+[
+    function comnine_Strings(...strings) {
+        return strings.join(" ");
+    }
+
+    const full_Name = comnine_Strings("I'am", "Dhope", "A", "Ghanaian");
+    console.log(full_Name);
+]
+
+
+
+///// PROJECT 4 - DICE ROLLER \\\\\
+[
+    // DICE ROLLER PROGRAM
+
+    function roll_Dice() {
+        
+        const num_Of_Dice = document.getElementById('num_Of_Dice').value;
+        const dice_Result = document.getElementById('dice_Result');
+        const dice_Images = document.getElementById('dice_Images');
+        
+        // WE'LL STORE ALL OF THE DICE ROLLES(the numbers) HERE 
+        const values = [];
+        // THIS WILL BE FOR THE IMAGES OF THE DICE
+        const images = [];
+
+        // LET'S CREATE A FOR-LOOP TO LOOP ONCE IF THE VALUE IN num_Of_Dice = 1
+        // IF THE USER IS ROLLING 3 DICE, THE FOR-LOOP SHOULD LOOP 3 TIMES, AND SO ON.
+        for (let index = 0; index < num_Of_Dice; index++) {
+            
+            // GENERATE RANDOM WHOLE NUMBERS FROM 0 TO 6
+            const roll_value = Math.floor(Math.random() * 6) * 1;
+            // PUSH roll_value TO values
+            values.push(roll_value);
+
+            // GET 6 IMAGES, STORE THEM IN AN IMAGES FOULDER
+            // RENAME THEM LIKE THIS: 1.png, 2.png, 3.png, 4.png, 5.png, 6.png.
+            // THIS WILL GIVE US AN ARRAY OF HTML IMAGES.
+            // THE VALUE FROM 'roll_value' WILL BE ATTACHED TO THE ENCODED HTML CODE BELOW.
+            images.push(`<img src="images/${roll_value}.png" alt="Dice ${roll_value}">`);
+        }
+
+        // JOIN TWO OR MORE NUMBERS, WITH A COMMAR',' AND A SPACE' '.
+        dice_Result.textContent = `dice: ${values.join(', ')}`;
+
+        dice_Images.innerHTML = images.join('');
+    }
+]
+
+
+
+///// PROJECT 5 - RANDOM PASSWORD GENERATOR \\\\\
+[
+    // RANDOM PASSWORD GENERATOR
+
+    function generate_Password(...values) {
+
+        const lower_Case_Chars = "qwertyuiopasdfghjklzxcvbnm";
+        const upper_Case_Chars = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        const number_Chars = "0123456789";
+        const symbol_Chars = "!@#$%^&*()_+-=?><`~";
+
+        let allowed_Chars = "";
+        let password = "";
+
+        // IF ANY OF THE CHARATERS ABOVE ARE ALLOWED,
+        // APPEND THEM TO THE 'allowed_Chars', LESS APPEND AN EMPTY STRING.
+        allowed_Chars += include_LowerCase ? lower_Case_Chars : "";
+        allowed_Chars += include_UpperCase ? upper_Case_Chars : "";
+        allowed_Chars += include_Numbers ? number_Chars : "";
+        allowed_Chars += include_Symbols ? symbol_Chars : "";
+
+        if (password_Length <= 0) {
+            return `(password length must be at least 1)`;
+        }
+        // CHECKING IF ANY OF THE CHARATERS ARE SELECTED
+        if (allowed_Chars.length === 0) {
+            return `(At least one set of character needs to be selected.)`;
+        }
+
+        // THE NUMBER OF TIMES WILL LOOP WILL BE DETERMINE BY: 'password_Length'.
+        for (let index = 0; index < password_Length; index++) {
+            
+            /*
+                The 'allowed_Chars.length', Is The Sum Of The Length, Of Every Allowed Character, All Together,
+                (The Length Of All The Allow Characters, ADDED TO TOGETHER) = 'allowed_Chars.length'
+                This Determines The Range Of Numbers The 'random_Index' Will Have, Per Loop.
+            */
+            const random_Index = Math.floor(Math.random() * allowed_Chars.length);
+            
+            /*
+                The Value Generated From 'random_Index' In Every Loop,
+                Will Be Passed On To 'allowed_Chars' To Get The Value Of The Corresponding String To That Index,
+                So In This Case, The Value From 'random_Index' Is Been Used As Index, 
+                To Search For Data From 'allowed_Chars'.
+                AND THEN APPEND TO: 'password'.
+            */
+            password += allowed_Chars[random_Index];
+        }
+
+        return password;
+    }
+
+
+    // SETTING OPTIONS
+    const password_Length = 12;
+    const include_LowerCase = true;
+    const include_UpperCase = true;
+    const include_Numbers = true;
+    const include_Symbols = true;
+
+    // CALLING FUNCTION
+    const generated_Password = generate_Password(
+        password_Length, 
+        include_LowerCase, 
+        include_UpperCase, 
+        include_Numbers, 
+        include_Symbols
+    );
+
+    console.log(`Generated Password: ${generated_Password}`);
+
+]
+
+
+
+// CALLBACK IN JS ~ under arrays \\
+A CALLBACK IS A FUNCTION THAT IS PASSES AS AN ARGUMENT, 
+TO ANOTHER FUNCTION.
+!! DON'T ADD '()' WHEN PASSING A FUNCTION AS AN ARGUMENT, JUST WRTIE THE NAME !!
+
+THEY ARE USED TO HANDLE asynchronous operations such as:
+1. Reading a file
+2. Network requests
+3. Interacting with databases
+
+THESE ACTIVITIES TAKE SOME TIME TO COMPLETE, 
+JS DOES'NT WAIT FOR A PROCESS TO FINISH BEFORE CONTINUEING WITH THE REST OF THE PROGRAM.
+
+By Using Callback we're garateing, 
+that the function passed as an argument, will execute next.
+
+EXAMPLE 1
+[
+    hello(hi);
+
+    function hello(callback) {
+        // time to display is 3 seconds
+        setTimeout( function (){
+            console.log("Hello 👋");
+            callback();
+        }, 3000);
+    }
+
+    function hi() {
+        console.log('Hi There, 🙂');
+    }
+]
+
+EXAMPLE 2
+[
+    // SWITCH BETWEEN CONSOLE AND PAGE DISPLAY
+    sum(display_Console, 3, 4);
+
+    function sum(callback, num1, num2) {
+        let result = num1 + num2;
+        callback(result);
+    }
+
+    function display_Console(result) {
+        console.log(result);
+    }
+
+    function display_Page(result) {
+        document.getElementById("myH1").textContent = result;
+    }
+]
+
+-- TO invoke means TO Call --
+
+
+
+// FOREACH METHOD IN JS ~ under arrays \\
+FOREACH is used to iterate(loop) over(through) the elements of an array,
+and apply a specified function(callback) to each element.
+[
+    array_name.forEach(callback);
+    BY DEFAULT(behide-the-sense) THE element, index, array are provided in the forEach method.
+    element = the values in the array.
+    index = [0,1,2] used to keep track of the element.
+    array = the name of the array(argument) passed on to the forEach Method. 
+
+    EXAMPLE 1
+    Print elements of an array one by one
+    [
+        let numbers = [1, 2, 3, 4, 5];
+
+        numbers.forEach(display);
+
+        function display(element) {
+            console.log(element);
+        }
+    ]
+
+    EXAMPLE 2
+    Let's double the elements of an array one by one
+    [
+        let numbers = [1, 2, 3, 4, 5];
+
+        numbers.forEach(double);
+        numbers.forEach(display);
+
+        function double(element, index, array) {
+            array[index] = element * 2;
+        }
+
+        function display(element) {
+            console.log(element)
+        }
+    ]
+
+    EXAMPLE 3 
+    Let's square the elements of an array one by one
+    [
+        let numbers = [1, 2, 3, 4, 5];
+
+        numbers.forEach(square);
+        numbers.forEach(display);
+
+        function square(element, index, array) {
+            array[index] = Math.pow(element, 2)
+        }
+
+        function display(element) {
+            console.log(element)
+        }
+    ]
+
+    EXAMPLE 4
+    Let's Make the elements Upper Case
+    [
+    let fruits = ["apple", "orange", "banana", "coconut"];
+
+        fruits.forEach(upper_Case);
+        fruits.forEach(display);
+
+        function upper_Case(element, index, array) {
+            array[index] = element.toUpperCase();
+        }
+
+        function display(element) {
+            console.log(element)
+        }
+    ]
+
+    EXAMPLE 5
+    Let's Capitalize the first letter of each elements
+    [
+        let fruits = ["apple", "orange", "banana", "coconut"];
+
+        fruits.forEach(capitalize);
+        fruits.forEach(display);
+
+        function capitalize(element, index, array) {
+            array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+        }
+
+        function display(element) {
+            console.log(element)
+        }
+    ]
+]
+
+
+
+// map() Method in JS ~ under arrays  \\
+The map() Method accepts a callback, and applies that function
+to each element of an array, then return a NEW ARRAY.
+very similer to forEach method BUT this one return a NEW ARRAY thats the only difference.
+
+[
+    EXAMPLE 1
+    Let's square some numbers
+    [
+        let numbers = [1, 2, 3, 4, 5];
+
+        let square_Nums = numbers.map(square);
+        console.log(square_Nums);
+
+        function square(element) {
+            return Math.pow(element, 2);
+        }
+    ]
+
+    EXAMPLE 2 
+    Let's cube these numbers
+    [
+        let numbers = [1, 2, 3, 4, 5];
+
+        let cube_Nums = numbers.map(cube);
+        console.log(cube_Nums);
+
+        function cube(element) {
+            return Math.pow(element, 3);
+        }
+    ]
+
+    EXAMPLE 3
+    Let's formate date
+    [
+        let dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+
+        let formated_DATE = dates.map(formate_Date);
+        console.log(formated_DATE);
+
+        function formate_Date(element) {
+            // THE CODE BELOW, WILL SEPARATE THE ELEMENTS OF THE ARRAY, WHEN IT SEE "-" 
+            const parts = element.split("-");
+
+            // THE CODE BELOW, WILL REARRANGE THE ELEMENTS OF THE ARRAY BY THE INDEX
+            return `${parts[2]} / ${parts[1]} / ${parts[0]}`;
+        }
+    ]
+]
+
+
+
+// THE FILTER() Method IN JS ~ under arrays \\
+The Filter() creates a new array ny filtering out elements.
+
+[
+    EXAMPLE 1
+    LET'S GET ALL EVEN NUMBERS
+    [
+        let numbers = [1, 2, 3, 4, 5, 6, 7];
+        let evenNum = numbers.filter(is_Even);
+
+        console.log(evenNum);
+
+        // AGAIN - BY DEFAULT(behide-the-sense) THE element, index, array are provided.
+        function is_Even(element){
+            return element % 2 === 0;
+        }
+    ]
+
+    EXAMPLE 2
+    LET'S GET ALL ODD NUMBERS
+    [
+        let numbers = [1, 2, 3, 4, 5, 6, 7];
+        let oddNum = numbers.filter(is_Odd);
+
+        console.log(oddNum);
+        
+        // AGAIN - BY DEFAULT(behide-the-sense) THE element, index, array are provided.
+        function is_Odd(element){
+            return element % 2 !== 0;
+        }
+    ]
+
+    EXAMPLE 3
+    LET'S GET ALL THE ADULTS
+    [
+        const ages = [16, 17, 18, 18, 19, 20, 60];
+        let adults = ages.filter(is_Adult);
+
+        console.log(adults);
+        
+        function is_Adult(element){
+            return element >= 18;
+        }
+    ]
+]
+
+
+
+// reduce() Method IN JS ~ under arrays \\
+The reduce()  method reduces the elements of an array to a single value.
+
+[
+    EXAMPLE 1
+    LET'S CREATE AN ARRAY OF PRICES, AS IF IT WAS A SHOPPING CARD,
+    WE'LL SUM ALL OF THE PRICES WITHIN OUR SHOPPING CARD, AND RETURN A TOTAL.
+    !! This along with the built-in 'accumulator' and 'element' !!
+    [
+        const prices = [12, 5, 20, 40, 60, 7];
+
+        const total = prices.reduce(sum);
+
+        // THIS ADDS TWO DECIMAL PLACES: 'toFixed(2)'
+        console.log(`$${total.toFixed(2)}`)
+
+        /*
+            accumulator = previous.
+            element = next.
+
+            previous + next
+        */
+        function sum(accumulator, element){
+            return accumulator + element;
+        }
+    ]
+
+    EXAMPLE 2
+    LET'S GET THE MAXIMUN GRADE
+    [
+        const grades = [12, 57, 20, 94, 60, 17];
+
+        const maximun = grades.reduce(get_Max);
+
+        console.log(maximun);
+
+        function get_Max(accumulator, element){
+            return Math.max(accumulator, element);
+        }
+    ]
+]
+
+
+
+// FUNCTION EXPRESSIONS IN JS ~ under Functions \\
+It's a way to define a function as value or argument or variable.
+
+[
+    -- EXAMPLES --
+    // AS VARIABLE
+    let wow = function () {
+        console.log("nice");
+    }
+    wow()
+
+    let hello = function (){
+        console.log("hello world");
+    }
+    hello()
+
+    // AS AN ARGUMENT
+    setTimeout(
+        function () {
+            console.log("Good Day");
+        }, 
+        3000
+    );
+]
+
+
+
+// Arrow Functions IN JS ~ under Functions \\
+it's a concise way to write functions EXPRESSIONS,
+good for simple functions that you use only once.
+[ (parameters) => some code ]
+
+EXAMPLES
+[
+    // AS VARIABLE
+    const hello = () => console.log("Hello");
+    hello();
+
+    let wow = () => {
+        console.log("nice");
+    }
+    wow();
+
+
+    // AS AN ARGUMENT
+    setTimeout(
+        () => {
+            console.log("Good Day");
+        }, 
+        3000
+    );
+]
+
+
+
+// 'this' IN JS \\
+this = it's a reference to the object which where 'this' is used.
+(as long as we're within the context of the object, 'this' can be used)
+(this is a reference to the object we're within)
+
+'this' DOSE NOT WORK WITH Arrow Functions.
+
+EXAMPLES
+[
+    let person = {
+        name: 'Theophilus',
+        age: 23,
+        favFood: "Rice",
+        say_HELLO: function () {console.log(`i'm ${this.name}`)},
+        eat: function () {console.log(`i'm eating ${this.favFood}`)}
+    }
+
+    person.say_HELLO()
+    person.eat()
+]
+
+
+
+// CONSTRUCTOR IN JS \\
+IT'S A SPECIAL METHOD FOR DEFINING THE 
+PROPERTIES AND METHODS OF AN OBJECT.
+EXAMPLE 
+[
+    // CONSTRUCTOR
+    // THIS IS HOW TO CREATE A CONSTRUCTOR.
+    // this is reuseable to create other car objects
+    function Car(make, model, year, color) {
+        this.make = make,
+        this.model = model,
+        this.year = year,
+        this.color = color,
+        this.drive = function(){console.log(`you drive a ${this.model}`)}
+    }
+
+    // THIS IS HOW TO INVOKE A CONSTRUCTOR, TO CREATE AN OBJECT FROM IT.
+    const car1 = new Car('BMW', 8787, 1765, "blue");
+
+    console.log(car1.year);
+    car1.drive()
+]
+
+
+
+// CLASSES IN JS \\
+A CLASS IS A (ES6 FEATURE) THAT PROVIDES A MORE STRUCTURED AND CLEANER WAY TO
+WORK WITH OBJECTS, COMPARED TO TRADITIONAL CONSTRUCTURE FUNCTIONS.
+ex. static keyword, encapsulation, inheritance.
+
+! within a class you don't need to write 'function' when your creating a function !
+
+[
+    class Product {
+        constructor (name, price){
+            this.name = name;
+            this.price = price;
+        }
+
+        display_Product (){
+            console.log(`Product: ${this.name}`);
+            console.log(`Price: $${this.price.toFixed(2)}`);
+        }
+
+        calculate_Total (salesTax) {
+            return this.price + (this.price * salesTax);
+        }
+    }
+
+    const sales_Tax = 0.05;
+    const product1 = new Product("Shirt", 19.99);
+
+    product1.display_Product();
+    const total = product1.calculate_Total(sales_Tax);
+    console.log(`Total Price (With Tax) $${total.toFixed(4)}`);
+
+]
+
+
+
+// static keyword IN JS \\
+STATIC IS A KEYWORD THAT DEFINES PROPERTIES OR METHODS THAT BELONG
+TO A CLASS ITSELF RATHER THAN THE OBJECT CREATED FROM THAT CLASS.
+(class owns anything decared static, and not any other objects created from that class)
+
+[
+    -- EXAMPLE 1
+    [
+        class Math_Util {
+            static PI = 3.23746;
+        }
+        // TO ACCESS 'PI' ALL I NEED TO DO IS: [Math_Util.PI]
+        // AND NOT [const Math_Util01 = new Math_Util()]
+    
+
+        class Math_Util {
+            static PI = 3.23746;
+
+            static get_Diameter (radius){
+                return radius * 2;
+            }
+
+            static get_Circumference (radius){
+                return 2 * this.PI * radius;
+            }
+
+            static get_Area (radius){
+                return this.PI * radius * radius;
+            }
+        }
+
+        console.log(Math_Util.PI);
+        console.log(Math_Util.get_Diameter(10));
+        console.log(Math_Util.get_Circumference(10));
+        console.log(Math_Util.get_Area(10));
+    
+    ]
+
+    -- EXAMPLE 2 --
+    let's keep track of users
+    [
+        
+        class User {
+            static user_count = 0;
+
+            // THE CONSTRUCTOR WILL BE CALLED AUTOMATICALLY 
+            // WHEN YOU CREATE A NEW OBJECT FROM THE CLASS.
+            constructor (username) {
+                this.username = username;
+                User.user_count++;
+            }
+
+            say_Hello (){
+                console.log(`Hello, my username is ${this.username}`)
+            }
+
+            static get_User_Count (){
+                console.log(`There are ${User.user_count} users online`)
+            }
+        }
+
+        const user1 = new User("Moses");
+        const user2 = new User("Sandy"); 
+
+        user1.say_Hello();
+        user2.say_Hello();
+
+        console.log(User.get_User_Count);
+    
+    ]
+]   
+
+
+
+// Inheriance in JS \\
+IT ALLOWS A NE3W CLASS TO INHERIT PROPERTIES AND METHODS 
+FROM AN EXISTING CLASS. (parent -> child)
+helps with code reusability.
+
+[
+    EXAMPLE
+    [
+        // Parent
+        class Animal {
+            alive = true;
+
+            eat (){
+                console.log(`This ${this.name} is eating`)
+            }
+            sleep (){
+                console.log(`This ${this.name} is sleep`)
+            }
+        }
+
+        // Children
+        class Rabbit extends Animal {
+            name = "rabbit";
+        }
+
+        class Fish extends Animal {
+            name = "fish";
+        }
+
+        class Hawk extends Animal {
+            name = "hawk";
+        }
+
+        const rabbit = new Rabbit();
+        const fish = new Fish();
+        const hawk = new Hawk(); 
+
+        console.log(rabbit.alive);
+        fish.eat();
+        hawk.sleep();
+    ]
+]
+
+
+
+// super keyword IN JS \\
+SUPER IS A KEYWORD THAT IS USED IN CLASSES TO CALL THE CONSTRUCTOR OR
+ACCESS THE PROPERTIES AND METHODS OF A PARENT(super class).
+this = this object
+super = the parent
+
+[
+    // Parent
+    class Animal {
+        constructor (name, age){
+            this.name = name;
+            this.age = age;
+        }
+    }
+
+    // Children
+    class Rabbit extends Animal {
+        constructor (name, age, run_Speed){
+            // SUPER KEYWORD
+            super(name, age);
+            this.run_Speed = run_Speed;
+        }
+    }
+
+    class Fish extends Animal {
+        constructor (name, age, swim_Speed){
+            super(name, age);
+            this.swim_Speed = swim_Speed;
+        }
+    }
+
+    class Hawk extends Animal {
+        constructor (name, age, fly_Speed){
+            super(name, age);
+            this.fly_Speed = fly_Speed;
+        }
+    }
+
+    const rabbit = new Rabbit("RABBIT", 2, 576);
+    const fish = new Fish("FISH", 17, 988);
+    const hawk = new Hawk("HAWK", 20, 675); 
+
+    console.log(rabbit.name);
+    console.log(fish.age);
+    console.log(hawk.fly_Speed);
+]
+
+
+
+// getters and setters IN JS \\
+getter = ARE SPECIAL METHOD THAT MAKE A PROPERTY READABLE.
+setter =  ARE SPECIAL METHOD THAT MAKE A PROPERTY WRITEABLE.
+
+YOU CAN USE GETTER AND SETTER TO VALIDATE AND MODIFY A VALUE WHEN READING/WRITING A PROPERTY.
+
+[
+    // Parent
+    class Rectangle {
+        constructor (width, height){
+            this.width = width;
+            this.height = height;
+        }
+
+        // Setter VALIDATION
+        set width(new_Width){
+            if (new_Width > 0) {
+                // using '_' before width tells other developer that this is a private property.
+                this._width = new_Width;
+            } else {
+                console.error("width must be a positive munber");
+            }
+        }
+
+        set height(new_height){
+            if (new_height > 0) {
+                // using '_' before width tells other developer that this is a private property.
+                this._height = new_height;
+            } else {
+                console.error("height must be a positive munber");
+            }
+        }
+
+        // Getter
+        get width(){
+            return this._width;
+        }
+
+        get height(){
+            return this._height;
+        }
+    }
+
+
+    const rectangle = new Rectangle(2, 576);
+
+    rectangle.width = 8
+    rectangle.height = 7;
+
+    console.log(rectangle.width);
+    console.log(rectangle.height);
+]
+
+
+
+// Destructuring in JS \\
+Destructuring allows us to extract values from arrays and objects,
+              then assign them to a variable in a convenient way.
+              WE CAN USE: [] = to perform array Destructuring
+                          {} =  to perform object Destructuring
+[
+    -- EXAMPLE 1 --
+    Destructuring CAN BE USED TO SWAP THE VALUES OF TWO VARIABLES.
+    [
+        let num17 = 17;
+        let num20 = 20;
+
+        //destructuring    new value(array, position)
+        [num17, num20]  =  [num20, num17];
+
+        console.log(num17);
+        console.log(num20);
+
+        // OUTPUT WILL BE [ 
+                            20 
+                            17 
+                          ]
+    ]
+
+
+    -- EXAMPLE 2 --
+    SWAP TWO ELEMENTS IN AN ARRAY.
+    SIMPLY CHANGE POSITION OF ELEMENTS IN AN ARRAY
+    [
+        const colors = ["red", "green", "blue", "black", "white"];
+        
+        //destructuring           new value(array, position)
+        [colors[0], colors[4]] = [colors[4], colors[0]]
+
+        console.log(colors);
+       
+
+        // OUTPUT WILL BE [ 
+                            ["white", "green", "blue", "black", "red"]; 
+                          ]
+    ]
+
+
+    -- EXAMPLE 3 --
+    ASSIGN ARRAY ELEMENTS TO VARIABLES.
+    [
+        const colors = ["red", "green", "blue", "black", "white"];
+        
+        const [frt_Clr, sec_Clr, thd_Clr, ...extra_Clr] = colors;
+
+        console.log(frt_Clr);
+        console.log(sec_Clr);
+        console.log(thd_Clr);
+        console.log(extra_Clr);
+       
+
+        // OUTPUT WILL BE [ 
+                            red
+                            green
+                            blue
+                            ['black', 'white']
+                          ]
+    ]
+
+
+    -- EXAMPLE 4 --
+    EXTRACT VALUE FROM OBJECT.
+    [
+        const person1 = {
+            frt_Name: "dhope",
+            lat_Name: "nation",
+            age: 30,
+            job: "Fry Cook"
+        }
+
+        const person2 = {
+            frt_Name: "shampi",
+            lat_Name: "lelee",
+            age: 20
+        }
+
+        const { frt_Name, lat_Name, age, job } = person1;
+        const { frt_Name, lat_Name, age, job="lookibg for job" } = person2;
+
+        console.log(frt_Name);
+        console.log(lat_Name);
+        console.log(age);
+        console.log(job);
+       
+        // OUTPUT WILL BE [ 
+                            dhope
+                            nation
+                            30
+                            Fry Cook
+                          ]
+    ]
+
+
+        -- EXAMPLE 5 --
+    DESTRUCTURE IN FUNCTION PARAMETERS
+    WE CAN PASS AN OBJECT TO A FUNCTION, AND DESTRUCTURE(EXTRACT DATA) RIGHT AWAY.
+    [
+    
+        const person1 = {
+            frt_Name: "dhope",
+            lat_Name: "nation",
+            age: 30,
+            job: "Fry Cook"
+        }
+
+        const person2 = {
+            frt_Name: "shampi",
+            lat_Name: "lelee",
+            age: 20
+        }
+
+        function display_Person ({frt_Name, lat_Name, age, job="looking for job"}){
+            console.log(`name: ${frt_Name} ${lat_Name}`);
+            console.log(`age: ${age}`);
+            console.log(`job: ${job}`);
+        }
+
+        display_Person(person1);
+        console.log('');
+        display_Person(person2);
+
+       
+        // OUTPUT WILL BE [ 
+                            name: dhope nation
+                            age: 30
+                            job: Fry Cook
+
+                            name: shampi lelee
+                            age: 20
+                            job: looking for job
+                          ]
+    ]
+]
+
+
+
+// NESTED OBJECT in JS \\
+THEY ARE OBJECT INSIDE OF OTHER OBJECTS.
+THEY ALLOW YOU TO REPRESENT MORE COMPLEX DATA STRUCTURE.
+A CHILD OBJECT IS ENCLOSED BY A PARENT OBJECT.
+THEY CAN TAKE ARRAYS TOO.
+[
+    -- EXAMPLE 1 --
+    [
+        // CREATE NESTED OBJECT
+        const person = {
+            ful_Name: "dhope nation",
+            age: 30,
+            is_Student: true,
+            hobbies: ["cooking", "football", "movies"],
+            address: {
+                street: "124 Conch St.",
+                city: "Bikini Bottom",
+                country: "Int. Water"
+            }
+        }
+
+        // ACCESS ELEMENTS
+        console.log( person.ful_Name );
+        console.log( person.age );
+        console.log( person.is_Student );
+        
+        // ACCESS ARRAY ELEMENTS IN OBJECT
+        console.log( person.hobbies[1] );
+
+        // ACCESS NESTED OBJECT
+        console.log( person.address.street );
+        console.log( person.address.city );
+        console.log( person.address.country );
+
+
+        // TO LOOP THROUGH THE PROPERTIES OF A NESTED OBJECT 
+        for (let property in person.address){
+            console.log(person.address[property])
+        }
+        // etirate THROUGH ARRAY
+        for (let property in person.hobbies){
+            console.log(person.hobbies[property])
+        }
+
+        // OUTPUT WILL BE   [ 
+                                dhope nation
+                                30
+                                true
+                                football
+                                124 Conch St.
+                                Bikini Bottom
+                                Int. Water
+
+                                cooking
+                                football
+                                movies
+                            ]
+    ]
+
+
+    -- EXAMPLE 2 --
+    [
+        class Address {
+            constructor (street, city, country){
+                this.street = street;
+                this.city = city;
+                this.country = country;
+            }
+        }
+
+        class Person {
+            constructor (name, age, ...address){
+                this.name = name;
+                this.age = age;
+                this.address = new Address(...address);
+            }
+        }
+
+        const person1 = new Person (
+            "Dhope", 30, 
+            "123 Conch St.", "Bikini Bottom", "Int. Waters"
+        );
+
+        const person2 = new Person (
+            "Nation", 35, 
+            "128 Conch St.", "Bikini Bottom", "Int. Waters"
+        );
+
+        const person3 = new Person (
+            "Shampi", 40, 
+            "150 Conch St.", "Bikini Bottom", "Int. Waters"
+        );
+
+        console.log(person1.address.street);
+    ]
+]
+
+
+
+// ARRAY OF OBJECTS \\
+
+[
+    const fruits = [
+        { name: "apple", color: "red", calories: 95 },
+        { name: "orange", color: "orange", calories: 45 },
+        { name: "banana", color: "yellow", calories: 105 },
+        { name: "coconut", color: "white", calories: 159 },
+        { name: "berry", color: "black", calories: 37 }
+    ]
+
+    console.log(fruits[0].name);
+    fruits.push({name: "grapges", color: "purple", calories: 62})
+    console.log(fruits);
+    fruits.pop();
+    console.log(fruits);
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
