@@ -1835,22 +1835,578 @@ THEY CAN TAKE ARRAYS TOO.
         { name: "orange", color: "orange", calories: 45 },
         { name: "banana", color: "yellow", calories: 105 },
         { name: "coconut", color: "white", calories: 159 },
+        { name: "pineapple", color: "yellow", calories: 40 },
         { name: "berry", color: "black", calories: 37 }
     ]
 
+    // ACCESS OBJECT IN ARRAY
+    console.log(fruits[0]);
     console.log(fruits[0].name);
+    console.log(fruits[0].color);
+    console.log(fruits[0].calories);
+    console.log("");
+
+    // ADD NEW OBJECT TO ARRAY-OF-OBJECTS
     fruits.push({name: "grapges", color: "purple", calories: 62})
     console.log(fruits);
+    console.log("");
+
+    // REMOVE LAST OBJECT FROM ARRAY-OF-OBJECTS
     fruits.pop();
     console.log(fruits);
+    console.log("");
+
+    // REMOVE OBJECT FROM ARRAY-OF-OBJECTS USING THE OBJECT'S INDEX
+    // this removes the index '1', you can write 'fruits.splice(1, 3);' to remove objects from one to three.
+    fruits.splice(1, 1);
+    console.log(fruits);
+    console.log("");
+
+    // -- forEach -- LOOP THROUG EVERY OBJECT IN THE ARRAY-OF-OBJECTS
+    fruits.forEach(fruit => console.log(fruit));
+    console.log("");
+
+    // -- map() -- WILL RUN EACH ELEMENTS THROUG A FUNCTION AND RETURN A NEW ARRAY
+    let fruit_Names = fruits.map(fruit => fruit.name);
+    console.log(fruit_Names);
+    console.log("");
+
+    // -- filter() -- WILL RETURN A NEW ARRAY, AFTER USING EACH ELEMENT AND CHECKING A CONDITION 
+    let yellow_Fruits = fruits.filter(fruit => fruit.color === "yellow");
+    console.log(yellow_Fruits);
+    console.log("");
+    let low_Cal_Fruits = fruits.filter(fruit => fruit.calories < 100);
+    console.log(low_Cal_Fruits);
+    console.log("");
+
+    // -- reduce() -- WILL RETURN A SINGLE VALUE 
+    // WE'RE FINDING THE FRUIT WITH MAX CALORIES
+    // accumulator RENAMED AS max_Frut, element RENAMED AS next_Frut
+    let max_fruit = fruits.reduce(
+        (max_Frut, next_Frut) => next_Frut.calories > max_Frut.calories ? next_Frut : max_Frut
+    );
+    console.log(max_fruit);
+    console.log("");
 ]
 
 
 
+// THE sort() METHOD IN JS \\
+THE sort() METHOD IS USED TO SORT ELEMENTS OF AN ARRAY IN PLACE. HOWEVER,
+WITH THE SORT METHOD, WE SORT ELEMENTS AS STRINGS IN lexicographic order, AND NOT alphabetical.
+lexicographic = (alphabet + numbers + symbols) as strings.
+[
+    SORTING TEXT
+    [
+        const colors = ["red", "green", "blue", "black", "white"];
+        colors.sort();
+        console.log(colors);
+        OUTPUT = [
+            ['black', 'blue', 'green', 'red', 'white']
+        ]
+    ]
+
+    SORTING NUMBERS
+    [
+        const numbers = [1, 5, 3, 2, 10, 0, 2, 45, 111, 7];
+        numbers.sort();
+        console.log(numbers);
+        OUTPUT = [
+            [0, 1, 10, 111, 2, 2, 3, 45, 5, 7]
+        ]
+        !! THE NUMBERS ABOVE IS NOT SORTED AS EXPEXTED USE CODE BELOW TO FIX IT !!
+
+        /*
+            SO WITH THE CODE BELOW, THE CURRENT NUMBER WILL BE SUBTRACTED FROM THE NEXT NUMBER,
+            IF IT RETURNS A POSITIVE NUMBERS = IT GOES TO THE BACK.
+            IF IT RETURNS A NEGATIVE NUMBERS = IT GOES TO THE FRONT.
+            IF IT RETURNS '0' = IT STAYS WERE IT IS.
+        */
+        numbers.sort((cur_Num, nxt_Num) => cur_Num - nxt_Num);
+
+        console.log(numbers);
+        OUTPUT = [
+            [0, 1, 2, 2, 3, 5, 7, 10, 45, 111]
+        ]
+    ]
+
+    SORTING BY PROPERTIES
+    
+    [
+        // SORTING BY GPA ~ NUMBERS
+        [
+            const people = [
+                { name: "apple", age: 20, gpa: 5.0 },
+                { name: "orange", age: 27, gpa: 4.5 },
+                { name: "banana", age: 40, gpa: 1.0 },
+                { name: "coconut", age: 30, gpa: 1.5 },
+                { name: "pineapple", age: 40, gpa: 4.0 },
+                { name: "berry", age: 25, gpa: 3.7 }
+            ]
+            people.sort((cur_Num, nxt_Num) => cur_Num.gpa - nxt_Num.gpa);
+            console.log(people);
+        ]
+
+        // SORTING BY NAME ~ TEXT
+        [
+            const people = [
+                { name: "apple", age: 20, gpa: 5.0 },
+                { name: "orange", age: 27, gpa: 4.5 },
+                { name: "banana", age: 40, gpa: 1.0 },
+                { name: "coconut", age: 30, gpa: 1.5 },
+                { name: "pineapple", age: 40, gpa: 4.0 },
+                { name: "berry", age: 25, gpa: 3.7 }
+            ]
+            // THIS WILL SORT THE NAMES ALPHBETICALLY
+            people.sort( (cur_Nam, nxt_Nam) => cur_Nam.name.localeCompare(nxt_Nam.name) );
+            console.log(people);
+        ]
+        
+    ]
+]
 
 
 
+// SHUFFLE THROUGH ELEMENT WITH JS \\
+GIVE EXECISE CAN BE USEFUL FOR A PROGRAM THAT NEEDS RANDOMNESS,
+OR A GAME LIKE THE CARDS SHUFFLE.
+[
+    // FISHER-YATES ALGORITHM
 
+    const cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+    function shuffle(array) {
+        // FOR LOOP TO START LOOPING FROM THE BACK
+        for (let index = array.length - 1; index < 0; index--) {
+            const random = Math.floor(Math.random() * (index + 1));
+
+            // DESTRUCTION
+            [array[index], array[random]] = [array[random], array[index]];
+        }
+    }
+
+    shuffle(cards);
+    console.log(cards);
+]
+
+
+
+// Date Objects in JS \\
+DATE OBJECTS ARE OBJECTS THAT CONTAIN VALUES THAT REPRESENT DATES AND TIMES.
+THESE DATE OBJECTS CAN BE CHANGED AND FORMATTED TO SUIT YOUR NEED.
+[
+    // GET CURRENT DATE AND TIME
+    const date_Variable = new Date();
+
+    // CREATE YOUR OWN CUSTOMAIZED DATE AND TIME, USE PROCESSDURE BELOW
+    // Date(year, month, date, hour, minute, second, ms)
+
+    // FOR THE MONTH ['0' = January '11' = December] 
+    const date_Of_NSS = new Date(2023, 11, 29, 17, 27);
+
+    // FOR THE STRING FORMAT, THE MONTH STARTS FROM 1-12. 'T' IS FOR TIME
+    const date_formt1 = new Date("2023-12-29T17:00:00");
+
+    // FOR THE MILLI-SECONDS FORMAT, IT STARTS FROM THE DATE UR PC TIME BEGUN
+    // IT COULD BE GOOD FOR TIMER
+    const date_formt2 = new Date(1714300000000);
+
+    // YOU CAN EXTRACT INDIVIDUAL VALUES FROM THE DATE OBJECT
+    let get_Year = date_Variable.getFullYear();
+    let get_Month = date_Variable.getMonth();
+    let get_Day = date_Variable.getDate();
+    let get_Hour = date_Variable.getHours();
+    let get_Minutes = date_Variable.getMinutes();
+    let get_Seconds = date_Variable.getSeconds();
+    let get_Day_Of_Week = date_Variable.getDay();
+
+    // YOU CAN SET INDIVIDUAL VALUES OF THE DATE OBJECT
+    // These functions accept numbers ONLY, it start from '0' to were it ends.
+    let set_Year = date_Variable.setFullYear(2024);
+    let set_Month = date_Variable.setMonth(3);
+    let set_Day = date_Variable.setDate(0);
+    let set_Hour = date_Variable.setHours(4);
+    let set_Minutes = date_Variable.setMinutes(46);
+    let set_Seconds = date_Variable.setSeconds(6);
+
+    console.log(date_Variable);
+]
+
+
+
+// A CLOSURE IN JS \\
+A CLOSURE IS A FUNCTION DEFINED IN ANOTHER FUNCTION,
+THE INNER FUNCTION HAS ACCESS TO THE VARIABLES, AND SCOPE OF THE OUTER FUNCTION.
+
+! Any Variable in Closure is consided PRIVATE !
+
+BY USING CLOSURES, THEY ALLOW FOR PRIVATE VARIABLES AND STATE MAINTENANCE
+Used frequently in JS frameworks: React, VUE, Angular
+
+[
+    EXAMPLE 1
+    THEY ALLOW FOR PRIVATE VARIABLES
+    [
+        function outer(){
+
+            let message = "Hello";
+
+            function inner(){
+                console.log(message);
+            }
+            inner();
+        }
+        outer();
+    ]
+
+    EXAMPLE 2
+    STATE MAINTENANCE
+    [
+        function create_Counter(){
+
+            let count = 0;
+
+            function increment(){
+                count++;
+                console.log(`Count Increased to ${count}`);
+            }
+
+            function get_Count(){
+                return count;
+            }
+            
+            return {increment, get_Count};
+        }
+        
+        let counter = create_Counter();
+
+        counter.increment();
+        counter.increment();
+        counter.increment();
+        console.log("");
+        console.log(`The current count is ${counter.get_Count()}`);
+
+    ]
+
+    EXAMPLE 3
+    STATE MAINTENANCE ~ WE'RE CREATING A CLOSURE FOR A GAME, WERE WE KEEP TRACK OF POINTS.
+    [
+        function create_Game(){
+
+            let score = 0;
+
+            function increase_Score(points){
+                score += points; 
+                console.log(` + ${points}pts`);
+            }
+
+            function decrease_Score(points){
+                score -= points; 
+                console.log(` - ${points}pts`);
+            }
+
+            function get_Score(){
+                return score;
+            }
+            
+            // THIS RETURNS A REFERENCE OF ALL THE FUNCTIONS ABOVE
+            // SO NOW WE'RE USING THE 'create_Game' TO RETURN AN OBJECT.
+            return {increase_Score, decrease_Score, get_Score};
+        }
+        
+        const game = create_Game();
+
+        game.increase_Score(72)
+        game.increase_Score(100)
+        game.decrease_Score(5)
+        console.log(`The final score is ${game.get_Score()}pts`);
+
+    ]
+]
+
+
+
+// THE setTimeout() FUNCTION in JS \\
+THE setTimeout() ALLOWS YOU TO SCHEDULE THE EXECUTION OF A FUNCTION,
+AFTER AN AMOUNT OF TIME(MILLI-SECONDS).
+THE TIMES ARE APPROXIMATE(BASED ON THE WORKLOAD OF YOUR JS RUNTIME ENV.)
+
+setTimeout(callback, delay);
+!! 3000 FOR 3 SCEONDS !!
+[
+    setTimeout(() => window.alert("Hello"), 3000);
+
+    YOU CAN USE THE clearTimeout(timeout_id) TO CANCEL A TIMEOUT BEFORE IT TRIGGERS.
+    BUT WE HAVE TO PASS IN A TIMEOUT-ID.
+    const timeout_id = setTimeout(() => window.alert("Hello"), 3000);
+    clearTimeout(timeout_id);
+
+    [
+        let timeout_id;
+        function start_Timer() {
+            timeout_id = setTimeout(() => window.alert("Hello"), 3000);
+            console.log("STARTERED");
+        }
+
+        function clear_Timer() {
+            clearTimeout(timeout_id);
+            console.log("CLEARED");
+        }
+    ]
+]
+
+
+
+// -- PROJECT 6 -- DIGITAL CLOCK \\
+[
+    // DIGITAL CLOCK PROGRAM
+
+    function update_Clock(params) {
+        
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, 0);
+        const minutes = now.getMinutes().toString().padStart(2, 0);
+        const seconds = now.getSeconds().toString().padStart(2, 0);
+
+        const time_String = `${hours}:${minutes}:${seconds}`;
+        /*
+            ! FOR NORMAL CLOCK(AM/PM), FOLLOW INSTRUCTIONS BELOW !
+            !! FOLLOW IN THE SAME ORDER AS LISTED BELOW !!
+            1. RENAME 'const hours' TO 'let hours'.
+            2. CREATE [ const meridiem = hours >= 12 ? "PM" : "AM"; ].
+            3. CONVERT MILITARY-TIME, TO NORMAL-TIME [ 'hours = hours % 12;'
+                [ 13:00 % 12 ] hours WILL BE = '1:00'.
+                [ 05:00 % 12 ] hours WILL BE = '5:00'.
+                ! THIS IS WHY WE ADDED '|| 12;' !
+                INCASE THE MILITARY TIME IS '00:00' OR '12:00', IT WILL BE SET AS NORMAL TIME TO = 12AM.
+            ]
+            4. TO START THE HOUR WITH '0' = '04:45 PM' CUT THE [.toString().padStart(2, 0);] FROM 'let hours', AND ADD IT TO 'hours' like-this [ hours = hours.toString().padStart(2, 0); ].
+            5. IN 'const time_String' ADD '${meridiem}' AFTER '${seconds}'
+            6. DONE.
+        */
+
+        document.getElementById("clock").textContent = time_String;
+    }
+
+    update_Clock();
+
+    /*
+        TO GET THIS CLOCK TO UPDATE EVERY SECOND, 
+        WE'LL FOLLOW THE 'update_Clock();' WITH THE 'setInterval();' FUNCTION,
+        IT'S CALLS A FUNCTION REPEATEDLY, IN THIS CASE IT'S CALLS 'update_Clock();' IN EVERY ONE-SECOND = 'setInterval(update_Clock, 1000);'
+    */
+    setInterval(update_Clock, 1000);
+]
+
+
+
+// -- PROJECT 7 -- STOP WATCH PROGRAM \\
+[
+    const display = document.getElementById("display");
+
+    let timer = null;
+    let start_Time = 0;
+    let elapsed_Time = 0;
+    let is_Running = false;
+
+
+    function start() {
+        if (!is_Running) {
+            
+            // 'Date.now()' WILL RETURN DATA IN MILLI-SECONDS
+            start_Time = Date.now() - elapsed_Time;
+            timer = setInterval(update, 10);
+            is_Running = true;
+
+            document.getElementById("start_Btn").textContent = "Start";
+        }
+    }
+
+    function stop() {
+        if (is_Running) {
+            // STOP THE STOP-WATCH FROM RUNNING
+            clearInterval(timer);
+
+            // CALCULATE THE elapsed_Time 
+            elapsed_Time = Date.now() - start_Time;
+
+            is_Running = false;
+            document.getElementById("start_Btn").textContent = "Continue";
+        }
+    }
+
+    function reset() {
+        clearInterval(timer);
+        start_Time = 0;
+        elapsed_Time = 0;
+        is_Running = false;
+
+        display.textContent = "00:00:00:00";
+    }
+
+    function update() {
+        
+        const current_Time = Date.now();
+
+        // THIS WILL BE IN MILLI-SECONDS, 
+        // AND WE NEED TO BE CONVERTED INTO READABLE FORMAT
+        elapsed_Time = current_Time - start_Time;
+
+        // TO CONVERT MILLI-SECONDS TO HOURS, USE FORMULAR BELOW
+        // HOURS = elapsed_Time (1000-milliseconds * 60-seconds * 60-minutes);
+        let hours = Math.floor(elapsed_Time / (1000 * 60 * 60));
+
+        // MINUTES = elapsed_Time (1000-milliseconds * 60-seconds) % 60; 
+        // ! should Not hit/go-above '60' ! once we hit '60' it will reset back to '0'.
+        let minutes = Math.floor(elapsed_Time / (1000 * 60 ) % 60);
+        
+        // SECONDS = elapsed_Time / 1000-milliseconds  % 60;
+        let seconds = Math.floor(elapsed_Time / 1000 % 60);
+        
+        // MILLI-SECONDS IS ABOUT NORMALLY 4-DIGITS, WE DIVID IT BY 10, WE ONLY WANT THE FIRST 2 DIGITS
+        // MILLI-SECONDS = elapsed_Time % 1000 / 10;
+        let milliseconds = Math.floor(elapsed_Time % 1000 / 10);
+        
+        // LET'S CONVERT THEM INTO STRINGS, SO WE CAN ADD '0' BEFORE A SINGLE DIGIT.
+        hours = String(hours).padStart(2, "0");
+        minutes = String(minutes).padStart(2, "0");
+        seconds = String(seconds).padStart(2, "0");
+        milliseconds = String(milliseconds).padStart(2, "0");
+
+        // DISPLAY TO SCREEN
+        display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+
+    }
+]
+
+
+
+// ES6 MODULE IN JS \\
+A MODULE IS AN EXTERNAL FILE THAT CONTAINS REUSEABLE CODE,
+THAT CAN BE IMPORTED INTO OTHER JAVASCRIPT FILES.
+LET'S SAY YOU WRITE A VERY DIFICULT PROGRAM, WHILE YOU CAN IMPORT EACH PART OF THAT PROGRAM,
+INTO OTHER PROGRAMS, SO YOU HAVE TO WEAST TIME WRITING IT AGAIN.
+MODULES CAN CONTAIN VARIABLES, CLASSES, FUNCTIONS AND MORE.
+[ ES6 MODULES ] WERE INTRODUCED AS PART OF THE ECMAScript 2015 UPDATE.
+
+[
+    USING MODULES WE CAN CREATE REUSEABLE CODE, THAT WE CAN USE IN DIFFERENT PROGRAMS(JavaScript Files).
+
+    TO IMPORT/EXPORT 
+    // ES6 MODULE IN JS \\
+    A MODULE IS AN EXTERNAL FILE THAT CONTAINS REUSEABLE CODE,
+    THAT CAN BE IMPORTED INTO OTHER JAVASCRIPT FILES.
+    LET'S SAY YOU WRITE A VERY DIFICULT PROGRAM, WHILE YOU CAN IMPORT EACH PART OF THAT PROGRAM,
+    INTO OTHER PROGRAMS, SO YOU HAVE TO WEAST TIME WRITING IT AGAIN.
+    MODULES CAN CONTAIN VARIABLES, CLASSES, FUNCTIONS AND MORE.
+    [ ES6 MODULES ] WERE INTRODUCED AS PART OF THE ECMAScript 2015 UPDATE.
+
+    USING MODULES WE CAN CREATE REUSEABLE CODE, THAT WE CAN USE IN DIFFERENT PROGRAMS(JavaScript Files).
+
+    // -- EXPORT MUDOLE -- \\
+    TO IMPORT/EXPORT MODULES, MAKE SURE TO ADD THIS
+    IN YOUR HTML SET THE TYPE OF THE JAVASCRIPT FILE TO BE MODULE.
+    [ <script type="module" src="index.js"></script> ]
+
+    TO BE ABLE TO EXPORT YOUR MUDOLE, 
+    YOU NEED TO ADD 'export' TO ANY VARIABLE, FUNCTION, CLASS, ...etc EXAMPLE BELOW
+    THIS IS A ANOTHER JAVASCRIPT FILE CALLED: 'math_Util.js'
+    [
+        export const PI = 3.14159;
+
+        export function get_Circumference(radius) {
+            return 2 * PI * radius;
+        }
+
+        export function get_Area(radius) {
+            return PI * radius * radius;
+        }
+
+        export function get_Value(radius) {
+            return 4 * PI * radius * radius * radius;
+        }
+    ]
+
+    // -- IMPORT MUDOLE -- \\
+    SO, TO IMPORT/USE THE MUDOLE IN index.js, THE MAIN JS FILE, USE EXAMPLE BELOW.
+    [
+        import { PI, get_Circumference, get_Area, get_Volume } from "./math_Util.js";
+
+        console.log(PI);
+        console.log(`${get_Circumference(10).toFixed(2)}cm`);
+        console.log(`${get_Area(15).toFixed(2)}cm^2`);
+        console.log(`${get_Volume(10).toFixed(2)}cm^2`);
+    ]
+]
+
+
+
+// synchronous & asynchronous in JS \\
+[
+    synchronous = is code that execute line by line consecutively in a sequentail manner.
+              it waits for an operation to complete.
+
+    asynchronous = allows multiple operations to be performed concurrently WIHTOUT waiting.
+                it Doesn't block the execution flow, and allows the program to continue.
+                (I/O operations, network requests, fetching data)
+                Handled with: Callbacks, Promises, Async/Await
+]
+
+
+
+// ERROR OBJECT IN JS \\
+ERROR = IS AN OBJECT THAT IS CREATED TO REPRESENT A PROBLEM THAT OCCURS
+        ERRORS OCCUR OFTEN WITH USER INPUT OR ESTABLISHING A CONNECTION.
+
+HANDLING ERRORS WHEN THEY OCCUR
+[
+    try { } = Encloses code that might potentially cause an error.
+    catch { } = Catch and handle any thrown Errors from "try{}".
+    finally { } = (optional) Always executes. Used mostly for clean up
+                ex. close files, close connections, release resources
+
+    TRY, CATCH, AND FINALLY
+    [
+        try {
+            const dividend = Number(window.prompt("Enter a dividend: "));
+            const divisor = Number(window.prompt("Enter a divisor: "));
+            
+            if (divisor == 0) {
+                
+                // CREATE YOUR OWN ERROR MESSAGE
+                throw new Error("Write new error message here.");
+            }
+            // CHECK IS NOT A NUMBER
+            if (isNaN(dividend) || isNaN(divisor)) {
+                throw new Error("Value Must Be A Number.");
+            }
+
+            const result = dividend / divisor;
+            console.log(result);
+
+        } catch (error) {
+            // FOR SHOWING ERROR DON'T USE 'console.log' 
+            // USE 'console.error' WHICH WILL HIGHLIGHT THE ERROR AND EXECUTE OUR PROGRAM.
+            console.error(error);
+        }
+
+        finally {
+            // OFTEN USE WHEN;
+            /*
+                CLOSING FILES.
+                CLOSING CONNECTIONS.
+                RELEASING RESOURCES
+            */
+        }
+
+        console.log("You've bypassed the error");
+
+    ]
+]
+
+
+
+// -- PROJECT 8 -- CALCULATOR \\
 
 
 
