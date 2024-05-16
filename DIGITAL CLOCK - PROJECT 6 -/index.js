@@ -1,9 +1,11 @@
 
 // DIGITAL CLOCK PROGRAM
 
-function update_Clock(params) {
-    
+function update_Clock() {
+
+    // MUST INCLUDE THIS
     const now = new Date();
+
     const hours = now.getHours().toString().padStart(2, 0);
     const minutes = now.getMinutes().toString().padStart(2, 0);
     const seconds = now.getSeconds().toString().padStart(2, 0);
@@ -28,6 +30,7 @@ function update_Clock(params) {
     document.getElementById("clock").textContent = time_String;
 }
 
+// THIS WILL LET THE TIME SHOW, WHEN THE PAGE RELOADS.
 update_Clock();
 
 /*

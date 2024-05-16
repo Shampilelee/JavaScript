@@ -2174,10 +2174,11 @@ setTimeout(callback, delay);
             !! FOLLOW IN THE SAME ORDER AS LISTED BELOW !!
             1. RENAME 'const hours' TO 'let hours'.
             2. CREATE [ const meridiem = hours >= 12 ? "PM" : "AM"; ].
-            3. CONVERT MILITARY-TIME, TO NORMAL-TIME [ 'hours = hours % 12;'
+            3. CONVERT MILITARY-TIME, TO NORMAL-TIME [ "hours = hours % 12 || 12;"
+		EXAMPLES
                 [ 13:00 % 12 ] hours WILL BE = '1:00'.
                 [ 05:00 % 12 ] hours WILL BE = '5:00'.
-                ! THIS IS WHY WE ADDED '|| 12;' !
+                !+++ THIS IS WHY WE ADDED '|| 12;' +++!
                 INCASE THE MILITARY TIME IS '00:00' OR '12:00', IT WILL BE SET AS NORMAL TIME TO = 12AM.
             ]
             4. TO START THE HOUR WITH '0' = '04:45 PM' CUT THE [.toString().padStart(2, 0);] FROM 'let hours', AND ADD IT TO 'hours' like-this [ hours = hours.toString().padStart(2, 0); ].
@@ -2188,6 +2189,7 @@ setTimeout(callback, delay);
         document.getElementById("clock").textContent = time_String;
     }
 
+    // THIS WILL LET THE TIME SHOW, WHEN THE PAGE RELOADS.
     update_Clock();
 
     /*
@@ -2682,6 +2684,7 @@ DOM NAVIGATION = IS THE PROCESS OF NAVIGATING THROUGH THE STRUCTURE
         [ document.body.prepend(new_H1) ]
 
     // PUT new_H1 INTO A BOX
+       { USING CLASS MAY GIVE YOU PROBLEM SO USE ID(document.getElementById()) }
     [ document.getElementById("box1").append(new_H1); ]
 
     // PUT new_H1 INTO TWO BOXES
@@ -3504,7 +3507,7 @@ go here for the current call = [https://openweathermap.org/current]
 
     weather_form.addEventListener("submit", async event => {
         
-        // PREVENT RE-FREACH AFTER SUBMITTING FORM
+        // PREVENT RE-FREACH(reload) AFTER SUBMITTING FORM
         event.preventDefault();
 
         const city = user_City_Imput.value;
@@ -3637,6 +3640,17 @@ go here for the current call = [https://openweathermap.org/current]
         data_Card.appendChild(error_Display);
     }
 ]
+
+
+
+// DISABLE DEFAULT FORM PAGE RELOAD, WHICH TAKES RESULTS OFF SCREEN
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+  
+    // Handle form data or perform other actions here
+    // For example, you can use AJAX to submit the form data without page reload
+});
 
 
 
